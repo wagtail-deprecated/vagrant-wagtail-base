@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# to build django-base-v2.box:
+# to build wagtail-base-v0.1.box:
 vagrant up
-rm -f django-base-v2.1.box
-vagrant package --output django-base-v2.1.box
+rm -f wagtail-base-v0.1.box
+vagrant package --output wagtail-base-v0.1.box
 
 # to install locally:
-# vagrant box add django-base-v2.1 django-base-v2.1.box
+# vagrant box add wagtail-base-v0.1 wagtail-base-v0.1.box

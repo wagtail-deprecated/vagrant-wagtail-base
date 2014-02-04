@@ -17,10 +17,22 @@ export LC_ALL=en_GB.UTF-8
 apt-get update -y
 # Python dev packages
 apt-get install -y build-essential python python-dev python-setuptools python-pip
-# Dependencies for image processing with PIL
-apt-get install -y libjpeg62-dev zlib1g-dev libfreetype6-dev liblcms1-dev
+
+# Dependencies for image processing with Pillow (drop-in replacement for PIL)
+# supporting: jpeg, tiff, png, freetype, littlecms
+apt-get install -y libjpeg62-dev libtiff4-dev zlib1g-dev libfreetype6-dev liblcms2-dev
+
 # Git (we'd rather avoid people keeping credentials for git commits in the repo, but sometimes we need it for pip requirements that aren't in PyPI)
 apt-get install -y git
+
+apt-get install -y redis-server
+
+# use YAML for test fixtures
+apt-get install -y libyaml-dev
+
+# dependencies for lxml (for HTML whitelisting)
+apt-get install -y libxml2-dev libxslt-dev
+
 
 # Postgresql
 if ! command -v psql; then
@@ -34,7 +46,7 @@ if ! command -v pip; then
     easy_install -U pip
 fi
 if [[ ! -f /usr/local/bin/virtualenv ]]; then
-    easy_install virtualenv virtualenvwrapper stevedore virtualenv-clone
+    pip install virtualenv virtualenvwrapper stevedore virtualenv-clone
 fi
 
 # bash environment global setup
@@ -62,4 +74,13 @@ if ! command -v coffee; then
 fi
 if ! command -v lessc; then
     npm install -g less
+fi
+
+# ElasticSearch
+if ! command -v /usr/share/elasticsearch/bin/elasticsearch; then
+    apt-get install -y openjdk-6-jre-headless
+    echo "Downloading ElasticSearch..."
+    wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.5.deb
+    dpkg -i elasticsearch-0.90.5.deb
+    service elasticsearch start
 fi
