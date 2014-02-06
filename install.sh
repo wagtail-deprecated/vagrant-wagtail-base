@@ -20,7 +20,7 @@ apt-get install -y build-essential python python-dev python-setuptools python-pi
 
 # Dependencies for image processing with Pillow (drop-in replacement for PIL)
 # supporting: jpeg, tiff, png, freetype, littlecms
-apt-get install -y libjpeg62-dev libtiff4-dev zlib1g-dev libfreetype6-dev liblcms2-dev
+apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-dev
 
 # Git (we'd rather avoid people keeping credentials for git commits in the repo, but sometimes we need it for pip requirements that aren't in PyPI)
 apt-get install -y git
