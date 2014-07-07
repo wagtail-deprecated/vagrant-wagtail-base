@@ -13,30 +13,31 @@ export LANGUAGE=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 export LC_ALL=en_GB.UTF-8
 
-# Install essential packages from Apt
 apt-get update -y
+
+# Useful tools
+apt-get install -y vim git curl
+
 # Python dev packages
-apt-get install -y build-essential python python-dev python-setuptools python-pip
+apt-get install -y build-essential python python-dev python-setuptools
 
 # Dependencies for image processing with Pillow (drop-in replacement for PIL)
 # supporting: jpeg, tiff, png, freetype, littlecms
 apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-dev
 
-# Git (we'd rather avoid people keeping credentials for git commits in the repo, but sometimes we need it for pip requirements that aren't in PyPI)
-apt-get install -y git
-
+# Redis
 apt-get install -y redis-server
 
-# use YAML for test fixtures
+# Use YAML for test fixtures
 apt-get install -y libyaml-dev
 
-# dependencies for lxml (for HTML whitelisting)
+# Dependencies for lxml (for HTML whitelisting)
 apt-get install -y libxml2-dev libxslt-dev
 
 
 # Postgresql
 if ! command -v psql; then
-    apt-get install -y postgresql-$PGSQL_VERSION libpq-dev
+    apt-get install -y postgresql-$PGSQL_VERSION libpq-dev postgresql-client-common
     cp /vagrant_data/pg_hba.conf /etc/postgresql/$PGSQL_VERSION/main/
     /etc/init.d/postgresql reload
 fi
@@ -46,7 +47,7 @@ if ! command -v pip; then
     easy_install -U pip
 fi
 if [[ ! -f /usr/local/bin/virtualenv ]]; then
-    pip install virtualenv virtualenvwrapper stevedore virtualenv-clone
+    pip install virtualenv virtualenvwrapper
 fi
 
 # bash environment global setup
