@@ -62,9 +62,10 @@ fi
 
 # ElasticSearch
 if ! command -v /usr/share/elasticsearch/bin/elasticsearch; then
-    apt-get install -y openjdk-6-jre-headless
+    apt-get install -y openjdk-7-jre-headless
     echo "Downloading ElasticSearch..."
-    wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.5.deb
-    dpkg -i elasticsearch-0.90.5.deb
+    wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.1.deb
+    dpkg -i elasticsearch-1.2.1.deb
+    update-rc.d elasticsearch defaults 95 10
     service elasticsearch start
 fi
