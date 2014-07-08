@@ -16,10 +16,17 @@ export LC_ALL=en_GB.UTF-8
 apt-get update -y
 
 # Useful tools
-apt-get install -y vim git curl
+apt-get install -y vim git curl build-essential
 
-# Python dev packages
-apt-get install -y build-essential python python-dev python-setuptools
+# Python
+apt-get install -y libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
+wget https://www.python.org/ftp/python/3.4.1/Python-3.4.1.tgz
+tar -xvf Python-3.4.1.tgz
+cd Python-3.4.1
+./configure
+make
+make install
+cd ..
 
 # Dependencies for image processing with Pillow (drop-in replacement for PIL)
 # supporting: jpeg, tiff, png, freetype, littlecms
@@ -42,21 +49,13 @@ if ! command -v psql; then
     /etc/init.d/postgresql reload
 fi
 
-# virtualenv global setup
-if ! command -v pip; then
-    easy_install -U pip
-fi
-if [[ ! -f /usr/local/bin/virtualenv ]]; then
-    pip install virtualenv virtualenvwrapper
-fi
-
 # bash environment global setup
 cp -p /vagrant_data/bashrc /home/vagrant/.bashrc
 
 # install our common Python packages in a temporary virtual env so that they'll get cached
 if [[ ! -e /home/vagrant/.pip_download_cache ]]; then
     su - vagrant -c "mkdir -p /home/vagrant/.pip_download_cache && \
-        virtualenv /home/vagrant/yayforcaching && \
+        pyvenv /home/vagrant/yayforcaching && \
         PIP_DOWNLOAD_CACHE=/home/vagrant/.pip_download_cache /home/vagrant/yayforcaching/bin/pip install -r /vagrant_data/common_requirements.txt && \
         rm -rf /home/vagrant/yayforcaching"
 fi
