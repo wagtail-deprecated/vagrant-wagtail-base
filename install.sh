@@ -16,7 +16,7 @@ export LC_ALL=en_GB.UTF-8
 apt-get update -y
 
 # Useful tools
-apt-get install -y vim git curl
+apt-get install -y vim git curl gettext
 
 # Python dev packages
 apt-get install -y build-essential python python-dev python-setuptools
