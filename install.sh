@@ -21,6 +21,16 @@ apt-get install -y vim git curl gettext
 # Python dev packages
 apt-get install -y build-essential python python-dev python-setuptools
 
+# Python 3.4
+apt-get install -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
+wget https://www.python.org/ftp/python/3.4.1/Python-3.4.1.tgz
+tar -xvf Python-3.4.1.tgz
+cd Python-3.4.1
+./configure
+make
+make install
+cd ..
+
 # Dependencies for image processing with Pillow (drop-in replacement for PIL)
 # supporting: jpeg, tiff, png, freetype, littlecms
 apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-dev
@@ -60,6 +70,15 @@ if [[ ! -e /home/vagrant/.pip_download_cache ]]; then
         PIP_DOWNLOAD_CACHE=/home/vagrant/.pip_download_cache /home/vagrant/yayforcaching/bin/pip install -r /vagrant_data/common_requirements.txt && \
         rm -rf /home/vagrant/yayforcaching"
 fi
+
+# Ditto for Python 3
+if [[ ! -e /home/vagrant/.pip_download_cache ]]; then
+    su - vagrant -c "mkdir -p /home/vagrant/.pip_download_cache && \
+        pyvenv-3.4 /home/vagrant/yayforcaching && \
+        PIP_DOWNLOAD_CACHE=/home/vagrant/.pip_download_cache /home/vagrant/yayforcaching/bin/pip install -r /vagrant_data/common_requirements.txt && \
+        rm -rf /home/vagrant/yayforcaching"
+fi
+
 
 # ElasticSearch
 if ! command -v /usr/share/elasticsearch/bin/elasticsearch; then
