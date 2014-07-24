@@ -4,6 +4,7 @@
 Vagrant::Config.run do |config|
 	# Every Vagrant virtual environment requires a box to build off of.
 	config.vm.box = "ubuntu/trusty32"
+        config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-i386-vagrant-disk1.box"
 	
 	# Boot with a GUI so you can see the screen. (Default is headless)
 	# config.vm.boot_mode = :gui
