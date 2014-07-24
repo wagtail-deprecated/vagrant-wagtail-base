@@ -30,6 +30,8 @@ cd Python-3.4.1
 make
 make install
 cd ..
+rm Python-3.4.1.tgz
+rm -rf Python-3.4.1
 
 # Dependencies for image processing with Pillow (drop-in replacement for PIL)
 # supporting: jpeg, tiff, png, freetype, littlecms
