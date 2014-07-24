@@ -24,6 +24,16 @@ apt-get install -y postgresql libpq-dev
 # Java for Elasticsearch
 apt-get install -y openjdk-7-jre-headless
 
+# Python 3.4
+apt-get install -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
+wget https://www.python.org/ftp/python/3.4.2/Python-3.4.2.tgz
+tar -xvf Python-3.4.2.tgz
+cd Python-3.4.2
+./configure
+make
+make install
+cd ..
+
 
 # Create vagrant pgsql superuser
 su - postgres -c "createuser -s vagrant"
