@@ -2,7 +2,7 @@
 
 # Script to set up dependencies for Django on Vagrant.
 
-PGSQL_VERSION=9.1
+PGSQL_VERSION=9.3
 
 # Need to fix locale so that Postgres creates databases in UTF-8
 cp -p /vagrant_data/etc-bash.bashrc /etc/bash.bashrc
