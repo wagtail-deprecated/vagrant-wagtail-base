@@ -65,22 +65,9 @@ fi
 # bash environment global setup
 cp -p /vagrant_data/bashrc /home/vagrant/.bashrc
 
-# install our common Python packages in a temporary virtual env so that they'll get cached
-if [[ ! -e /home/vagrant/.pip_download_cache ]]; then
-    su - vagrant -c "mkdir -p /home/vagrant/.pip_download_cache && \
-        virtualenv /home/vagrant/yayforcaching && \
-        PIP_DOWNLOAD_CACHE=/home/vagrant/.pip_download_cache /home/vagrant/yayforcaching/bin/pip install -r /vagrant_data/common_requirements.txt && \
-        rm -rf /home/vagrant/yayforcaching"
-fi
-
-# Ditto for Python 3
-if [[ ! -e /home/vagrant/.pip_download_cache ]]; then
-    su - vagrant -c "mkdir -p /home/vagrant/.pip_download_cache && \
-        pyvenv-3.4 /home/vagrant/yayforcaching && \
-        PIP_DOWNLOAD_CACHE=/home/vagrant/.pip_download_cache /home/vagrant/yayforcaching/bin/pip install -r /vagrant_data/common_requirements.txt && \
-        rm -rf /home/vagrant/yayforcaching"
-fi
-
+# Build virtual environments
+su - vagrant -c "virtualenv /home/vagrant/.virtualenvs/python2 && /home/vagrant/.virtualenvs/python2/bin/pip install -r /vagrant_data/common_requirements.txt"
+su - vagrant -c "pyvenv /home/vagrant/.virtualenvs/python3 && /home/vagrant/.virtualenvs/python3/bin/pip install -r /vagrant_data/common_requirements.txt"
 
 # ElasticSearch
 if ! command -v /usr/share/elasticsearch/bin/elasticsearch; then
