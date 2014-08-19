@@ -31,9 +31,6 @@ apt-get install -y redis-server
 # Use YAML for test fixtures
 apt-get install -y libyaml-dev
 
-# Dependencies for lxml (for HTML whitelisting)
-apt-get install -y libxml2-dev libxslt-dev
-
 
 # Postgresql
 if ! command -v psql; then
