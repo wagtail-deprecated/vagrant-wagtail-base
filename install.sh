@@ -26,7 +26,7 @@ apt-get install -y build-essential python python-dev python-setuptools
 apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-dev
 
 # Dependencies for OpenCV image feature detection
-apt-get install python-opencv python-numpy
+apt-get install -y python-opencv python-numpy
 
 # Redis
 apt-get install -y redis-server
