@@ -31,9 +31,6 @@ apt-get install python-opencv python-numpy
 # Redis
 apt-get install -y redis-server
 
-# Use YAML for test fixtures
-apt-get install -y libyaml-dev
-
 
 # Postgresql
 if ! command -v psql; then
