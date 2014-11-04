@@ -30,33 +30,25 @@ su - postgres -c "createuser -s vagrant"
 
 
 # virtualenv global setup
-if ! command -v pip; then
-    easy_install -U pip
-fi
-if [[ ! -f /usr/local/bin/virtualenv ]]; then
-    pip install virtualenv virtualenvwrapper
-fi
+easy_install -U pip
+pip install virtualenv virtualenvwrapper
 
 # bash environment global setup
 cp -p /vagrant/install/bashrc /home/vagrant/.bashrc
 
 # install our common Python packages in a temporary virtual env so that they'll get cached
-if [[ ! -e /home/vagrant/.pip_download_cache ]]; then
-    su - vagrant -c "mkdir -p /home/vagrant/.pip_download_cache && \
-        virtualenv /home/vagrant/yayforcaching && \
-        PIP_DOWNLOAD_CACHE=/home/vagrant/.pip_download_cache /home/vagrant/yayforcaching/bin/pip install -r /vagrant/install/pip_requirements.txt && \
-        rm -rf /home/vagrant/yayforcaching"
-fi
+su - vagrant -c "mkdir -p /home/vagrant/.pip_download_cache && \
+    virtualenv /home/vagrant/yayforcaching && \
+    PIP_DOWNLOAD_CACHE=/home/vagrant/.pip_download_cache /home/vagrant/yayforcaching/bin/pip install -r /vagrant/install/pip_requirements.txt && \
+    rm -rf /home/vagrant/yayforcaching"
 
 # ElasticSearch
-if ! command -v /usr/share/elasticsearch/bin/elasticsearch; then
-    echo "Downloading ElasticSearch..."
-    wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.2.deb
-    dpkg -i elasticsearch-1.3.2.deb
-    update-rc.d elasticsearch defaults 95 10
-    service elasticsearch start
-    rm elasticsearch-1.3.2.deb
-fi
+echo "Downloading ElasticSearch..."
+wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.2.deb
+dpkg -i elasticsearch-1.3.2.deb
+update-rc.d elasticsearch defaults 95 10
+service elasticsearch start
+rm elasticsearch-1.3.2.deb
 
 # Cleanup
 apt-get clean
