@@ -21,6 +21,18 @@ apt-get install -y vim git curl gettext
 # Python dev packages
 apt-get install -y build-essential python python-dev python-setuptools
 
+# Python 3.4
+apt-get install -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
+wget https://www.python.org/ftp/python/3.4.1/Python-3.4.1.tgz
+tar -xvf Python-3.4.1.tgz
+cd Python-3.4.1
+./configure
+make
+make install
+cd ..
+rm Python-3.4.1.tgz
+rm -rf Python-3.4.1
+
 # Dependencies for image processing with Pillow (drop-in replacement for PIL)
 # supporting: jpeg, tiff, png, freetype, littlecms
 apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-dev
@@ -50,13 +62,9 @@ fi
 # bash environment global setup
 cp -p /vagrant_data/bashrc /home/vagrant/.bashrc
 
-# install our common Python packages in a temporary virtual env so that they'll get cached
-if [[ ! -e /home/vagrant/.pip_download_cache ]]; then
-    su - vagrant -c "mkdir -p /home/vagrant/.pip_download_cache && \
-        virtualenv /home/vagrant/yayforcaching && \
-        PIP_DOWNLOAD_CACHE=/home/vagrant/.pip_download_cache /home/vagrant/yayforcaching/bin/pip install -r /vagrant_data/common_requirements.txt && \
-        rm -rf /home/vagrant/yayforcaching"
-fi
+# Build virtual environments
+su - vagrant -c "virtualenv /home/vagrant/.virtualenvs/python2 && /home/vagrant/.virtualenvs/python2/bin/pip install -r /vagrant_data/common_requirements.txt"
+su - vagrant -c "pyvenv /home/vagrant/.virtualenvs/python3 && /home/vagrant/.virtualenvs/python3/bin/pip install -r /vagrant_data/common_requirements.txt"
 
 # ElasticSearch
 if ! command -v /usr/share/elasticsearch/bin/elasticsearch; then
