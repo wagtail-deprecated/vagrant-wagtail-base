@@ -1,25 +1,28 @@
 #!/bin/bash
 
+# Install APT requirements
 apt-get update -y
 
 # Useful tools
 apt-get install -y vim git curl gettext
 
-# Python dev packages
+# Python development
 apt-get install -y build-essential python python-dev python-setuptools
 
-# Dependencies for image processing with Pillow (drop-in replacement for PIL)
-# supporting: jpeg, tiff, png, freetype, littlecms
+# Dependencies for PIL
 apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-dev
 
-# Dependencies for OpenCV image feature detection
+# OpenCV
 apt-get install -y python-opencv python-numpy
 
 # Redis
 apt-get install -y redis-server
 
-# Postgresql
+# PostgresSQL
 apt-get install -y postgresql libpq-dev
+
+# Java for Elasticsearch
+apt-get install -y openjdk-7-jre-headless
 
 
 # Create vagrant pgsql superuser
@@ -47,7 +50,6 @@ fi
 
 # ElasticSearch
 if ! command -v /usr/share/elasticsearch/bin/elasticsearch; then
-    apt-get install -y openjdk-7-jre-headless
     echo "Downloading ElasticSearch..."
     wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.2.deb
     dpkg -i elasticsearch-1.3.2.deb
