@@ -29,18 +29,19 @@ apt-get install -y openjdk-7-jre-headless
 su - postgres -c "createuser -s vagrant"
 
 
-# virtualenv global setup
+# PIP and Virtualenv
 easy_install -U pip
-pip install virtualenv virtualenvwrapper
+pip install virtualenv
 
-# bash environment global setup
+
+# Copy bashrc
 cp -p /vagrant/install/bashrc /home/vagrant/.bashrc
 
-# install our common Python packages in a temporary virtual env so that they'll get cached
-su - vagrant -c "mkdir -p /home/vagrant/.pip_download_cache && \
-    virtualenv /home/vagrant/yayforcaching && \
-    PIP_DOWNLOAD_CACHE=/home/vagrant/.pip_download_cache /home/vagrant/yayforcaching/bin/pip install -r /vagrant/install/pip_requirements.txt && \
-    rm -rf /home/vagrant/yayforcaching"
+
+# Create virtualenv and install Wagtail requirements
+su - vagrant -c "virtualenv /home/vagrant/venv"
+su - vagrant -c "/home/vagrant/venv/bin/pip install -r /vagrant/install/requirements.txt"
+
 
 # ElasticSearch
 echo "Downloading ElasticSearch..."
