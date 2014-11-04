@@ -43,13 +43,14 @@ su - vagrant -c "virtualenv /home/vagrant/venv"
 su - vagrant -c "/home/vagrant/venv/bin/pip install -r /vagrant/install/requirements.txt"
 
 
-# ElasticSearch
+# Elasticsearch
 echo "Downloading ElasticSearch..."
-wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.2.deb
-dpkg -i elasticsearch-1.3.2.deb
+wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.4.deb
+dpkg -i elasticsearch-1.3.4.deb
 update-rc.d elasticsearch defaults 95 10
 service elasticsearch start
-rm elasticsearch-1.3.2.deb
+rm elasticsearch-1.3.4.deb
+
 
 # Cleanup
 apt-get clean
