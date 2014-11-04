@@ -1,18 +1,5 @@
 #!/bin/bash
 
-# Script to set up dependencies for Django on Vagrant.
-
-PGSQL_VERSION=9.3
-
-# Need to fix locale so that Postgres creates databases in UTF-8
-cp -p /vagrant_data/etc-bash.bashrc /etc/bash.bashrc
-locale-gen en_GB.UTF-8
-dpkg-reconfigure locales
-
-export LANGUAGE=en_GB.UTF-8
-export LANG=en_GB.UTF-8
-export LC_ALL=en_GB.UTF-8
-
 apt-get update -y
 
 # Useful tools
@@ -31,13 +18,13 @@ apt-get install -y python-opencv python-numpy
 # Redis
 apt-get install -y redis-server
 
-
 # Postgresql
-if ! command -v psql; then
-    apt-get install -y postgresql-$PGSQL_VERSION libpq-dev postgresql-client-common
-    cp /vagrant_data/pg_hba.conf /etc/postgresql/$PGSQL_VERSION/main/
-    /etc/init.d/postgresql reload
-fi
+apt-get install -y postgresql libpq-dev
+
+
+# Create vagrant pgsql superuser
+su - postgres -c "createuser -s vagrant"
+
 
 # virtualenv global setup
 if ! command -v pip; then
