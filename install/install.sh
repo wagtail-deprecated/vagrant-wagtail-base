@@ -48,11 +48,6 @@ pip install virtualenv
 cp -p /vagrant/install/bashrc /home/vagrant/.bashrc
 
 
-# Create virtualenv and install Wagtail requirements
-su - vagrant -c "virtualenv /home/vagrant/venv"
-su - vagrant -c "/home/vagrant/venv/bin/pip install -r /vagrant/install/requirements.txt"
-
-
 # Elasticsearch
 echo "Downloading ElasticSearch..."
 wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.4.deb
