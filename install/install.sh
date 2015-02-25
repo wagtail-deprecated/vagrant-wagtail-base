@@ -44,10 +44,6 @@ easy_install -U pip
 pip install virtualenv
 
 
-# Copy bashrc
-cp -p /vagrant/install/bashrc /home/vagrant/.bashrc
-
-
 # Elasticsearch
 echo "Downloading ElasticSearch..."
 wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.4.deb
