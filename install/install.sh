@@ -39,9 +39,13 @@ cd ..
 su - postgres -c "createuser -s vagrant"
 
 
-# PIP and Virtualenv
-easy_install -U pip
-pip install virtualenv
+# PIP and Virtualenv for Python 2 (these are bundled with Python 3)
+easy_install-2.7 -U pip
+pip2.7 install virtualenv
+
+
+# Install Fabric and Sphinx
+pip2.7 install Fabric==1.10.1 Sphinx==1.2.3
 
 
 # Elasticsearch
