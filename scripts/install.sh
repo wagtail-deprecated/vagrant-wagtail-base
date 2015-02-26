@@ -56,10 +56,3 @@ update-rc.d elasticsearch defaults 95 10
 service elasticsearch start
 rm elasticsearch-1.4.4.deb
 
-
-# Cleanup
-apt-get clean
-
-echo "Zeroing free space to improve compression..."
-dd if=/dev/zero of=/EMPTY bs=1M
-rm -f /EMPTY
