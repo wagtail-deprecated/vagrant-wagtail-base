@@ -9,9 +9,6 @@ apt-get install -y vim git curl gettext build-essential
 # Dependencies for PIL
 apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-dev
 
-# OpenCV
-apt-get install -y python-opencv python-numpy
-
 # Redis
 apt-get install -y redis-server
 
@@ -26,26 +23,26 @@ apt-get install -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-
 
 
 # Python 2.7
-wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
-tar -xvf Python-2.7.9.tgz
+curl https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz | tar xvz
 cd Python-2.7.9
 ./configure
 make
 make install
 cd ..
+rm -rf Python-2.7.9
 
 pip2.7 install virtualenv
 pip2.7 install psycopg2==2.6 libsass==0.6.2 Pillow==2.7.0
 
 
 # Python 3.4
-wget https://www.python.org/ftp/python/3.4.3/Python-3.4.3.tgz
-tar -xvf Python-3.4.3.tgz
+curl https://www.python.org/ftp/python/3.4.3/Python-3.4.3.tgz | tar xvz
 cd Python-3.4.3
 ./configure
 make
 make install
 cd ..
+rm -rf Python-3.4.3
 
 pip3.4 install psycopg2==2.6 libsass==0.6.2 Pillow==2.7.0
 
