@@ -4,10 +4,7 @@
 apt-get update -y
 
 # Useful tools
-apt-get install -y vim git curl gettext
-
-# Python development
-apt-get install -y build-essential python python-dev python-setuptools
+apt-get install -y vim git curl gettext build-essential
 
 # Dependencies for PIL
 apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-dev
@@ -24,8 +21,23 @@ apt-get install -y postgresql libpq-dev
 # Java for Elasticsearch
 apt-get install -y openjdk-7-jre-headless
 
-# Python 3.4
+# Dependencies for Python
 apt-get install -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
+
+
+# Python 2.7
+wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
+tar -xvf Python-2.7.9.tgz
+cd Python-2.7.9
+./configure
+make
+make install
+cd ..
+
+pip2.7 install virtualenv
+
+
+# Python 3.4
 wget https://www.python.org/ftp/python/3.4.3/Python-3.4.3.tgz
 tar -xvf Python-3.4.3.tgz
 cd Python-3.4.3
@@ -37,11 +49,6 @@ cd ..
 
 # Create vagrant pgsql superuser
 su - postgres -c "createuser -s vagrant"
-
-
-# PIP and Virtualenv for Python 2 (these are bundled with Python 3)
-easy_install-2.7 -U pip
-pip2.7 install virtualenv
 
 
 # Install Fabric and Sphinx
