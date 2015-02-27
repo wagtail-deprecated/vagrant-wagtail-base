@@ -35,6 +35,7 @@ make install
 cd ..
 
 pip2.7 install virtualenv
+pip2.7 install psycopg2==2.6 libsass==0.6.2 Pillow==2.7.0
 
 
 # Python 3.4
@@ -45,6 +46,8 @@ cd Python-3.4.3
 make
 make install
 cd ..
+
+pip3.4 install psycopg2==2.6 libsass==0.6.2 Pillow==2.7.0
 
 
 # Create vagrant pgsql superuser
