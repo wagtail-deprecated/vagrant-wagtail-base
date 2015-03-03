@@ -16,4 +16,4 @@ To generate the .box file:
 
 To install locally:
 
-    vagrant box add wagtail-base-v1.0 wagtail-base-v1.0.box
+    vagrant box add wagtail-base-v1.1 wagtail-base-v1.1.box
