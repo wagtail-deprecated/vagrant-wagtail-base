@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Install APT requirements
+# Install APT database
 apt-get update -y
 
 # Useful tools
@@ -12,7 +12,7 @@ apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-
 # Redis
 apt-get install -y redis-server
 
-# PostgresSQL
+# PostgreSQL
 apt-get install -y postgresql libpq-dev
 
 # Java for Elasticsearch
