@@ -31,7 +31,6 @@ make install
 cd ..
 rm -rf Python-2.7.9
 
-# Install pip for python2
 python2 -m ensurepip
 
 pip2.7 install virtualenv
