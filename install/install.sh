@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Install APT database
+# Update APT database
 apt-get update -y
 
 # Useful tools
