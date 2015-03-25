@@ -31,6 +31,9 @@ make install
 cd ..
 rm -rf Python-2.7.9
 
+# Install pip for python2
+python2 -m ensurepip
+
 pip2.7 install virtualenv
 pip2.7 install psycopg2==2.6 libsass==0.6.2 Pillow==2.7.0
 
