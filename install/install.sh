@@ -33,8 +33,8 @@ rm -rf Python-2.7.9
 
 python2 -m ensurepip
 
-pip2.7 install virtualenv
-pip2.7 install psycopg2==2.6 libsass==0.6.2 Pillow==2.7.0
+pip2.7 install virtualenv wheel
+su - vagrant -c "pip2.7 wheel psycopg2==2.6 libsass==0.7.0 Pillow==2.8.1"
 
 
 # Python 3.4
@@ -46,7 +46,12 @@ make install
 cd ..
 rm -rf Python-3.4.3
 
-pip3.4 install psycopg2==2.6 libsass==0.6.2 Pillow==2.7.0
+pip3.4 install wheel
+su - vagrant -c "pip3.4 wheel psycopg2==2.6 libsass==0.7.0 Pillow==2.8.1"
+
+
+# Tell PIP where to find wheel files
+echo "export PIP_FIND_LINKS=/home/vagrant/wheelhouse" >> /home/vagrant/.bashrc
 
 
 # Create vagrant pgsql superuser
