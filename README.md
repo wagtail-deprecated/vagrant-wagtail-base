@@ -6,11 +6,13 @@ A Vagrant box based on Ubuntu trusty32, with the dependencies for developing Wag
 Usage
 -----
 
-This box is available on Vagrant cloud (aka Atlas) so can be used by just setting your base box to "torchbox/wagtail".
+This box is available on Vagrant cloud (aka Atlas) so can be used by just setting your base box to ``torchbox/wagtail``.
 
 To create a new Vagrantfile that uses this box, run the following:
 
-   vagrant init torchbox/wagtail
+```
+vagrant init torchbox/wagtail
+```
 
 What's inside
 -------------
