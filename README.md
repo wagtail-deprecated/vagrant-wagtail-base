@@ -1,7 +1,7 @@
 Vagrant box for Wagtail site development
 ========================================
 
-A Vagrant box based on Ubuntu trusty32, with the dependencies for developing Wagtail sites preinstalled.
+A Vagrant box based on Ubuntu vivid64, with the dependencies for developing Wagtail sites preinstalled.
 
 Usage
 -----
@@ -19,8 +19,8 @@ What's inside
 
  - Python 2.7.9 with virtualenv and pip
  - Python 3.4.3 with pip (use bundled pyvenv for virtual environments)
- - PostgreSQL 9.3.6
- - Redis 2.8.4
+ - PostgreSQL 9.4.1
+ - Redis 2.8.19
  - Elasticsearch 1.4.4
  - Vim, Git, GCC (with C++ support)
  - Development headers for Python (2 and 3), PostgreSQL and some image libraries (libjpeg, zlib, etc)
