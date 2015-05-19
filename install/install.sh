@@ -18,42 +18,23 @@ apt-get install -y postgresql libpq-dev
 # Java for Elasticsearch
 apt-get install -y openjdk-7-jre-headless
 
-# Dependencies for Python
-apt-get install -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
+
+# Python 2
+apt-get install -y python python-dev python-pip python-virtualenv
+
+su - vagrant -c "pip2 wheel psycopg2==2.6"
+su - vagrant -c "pip2 wheel libsass==0.7.0"
+su - vagrant -c "pip2 wheel libsass==0.8.0"
+su - vagrant -c "pip2 wheel Pillow==2.8.1"
 
 
-# Python 2.7
-curl https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz | tar xvz
-cd Python-2.7.9
-./configure
-make
-make install
-cd ..
-rm -rf Python-2.7.9
+# Python 3
+apt-get install -y python3 python3-dev python3-pip python3-venv
 
-python2 -m ensurepip
-
-pip2.7 install virtualenv wheel
-su - vagrant -c "pip2.7 wheel psycopg2==2.6"
-su - vagrant -c "pip2.7 wheel libsass==0.7.0"
-su - vagrant -c "pip2.7 wheel libsass==0.8.0"
-su - vagrant -c "pip2.7 wheel Pillow==2.8.1"
-
-
-# Python 3.4
-curl https://www.python.org/ftp/python/3.4.3/Python-3.4.3.tgz | tar xvz
-cd Python-3.4.3
-./configure
-make
-make install
-cd ..
-rm -rf Python-3.4.3
-
-pip3.4 install wheel
-su - vagrant -c "pip3.4 wheel psycopg2==2.6"
-su - vagrant -c "pip3.4 wheel libsass==0.7.0"
-su - vagrant -c "pip3.4 wheel libsass==0.8.0"
-su - vagrant -c "pip3.4 wheel Pillow==2.8.1"
+su - vagrant -c "pip3 wheel psycopg2==2.6"
+su - vagrant -c "pip3 wheel libsass==0.7.0"
+su - vagrant -c "pip3 wheel libsass==0.8.0"
+su - vagrant -c "pip3 wheel Pillow==2.8.1"
 
 
 # Tell PIP where to find wheel files
@@ -65,7 +46,7 @@ su - postgres -c "createuser -s vagrant"
 
 
 # Install Fabric and Sphinx
-pip2.7 install Fabric==1.10.1 Sphinx==1.2.3
+pip2 install Fabric==1.10.1 Sphinx==1.2.3
 
 
 # Elasticsearch
