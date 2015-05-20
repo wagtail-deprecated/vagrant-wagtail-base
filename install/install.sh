@@ -77,6 +77,11 @@ service elasticsearch start
 rm elasticsearch-1.4.4.deb
 
 
+# Remove some large packages that we don't need
+apt-get remove -y juju juju-core
+apt-get remove -y libllvm3.4
+apt-get autoremove -y
+
 # Cleanup
 apt-get clean
 
