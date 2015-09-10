@@ -19,10 +19,13 @@ apt-get install -y postgresql libpq-dev
 apt-get install -y openjdk-7-jre-headless
 
 # Python 2.7
-apt-get install -y python python-dev python-pip python-virtualenv python-wheel
+apt-get install -y python python-dev
 
 # Python 3.4
-apt-get install -y python3 python3-dev python3-pip python3-virtualenv python3-wheel
+apt-get install -y python3 python3-dev
+
+# Python tools
+apt-get install -y virtualenv fabric python-sphinx
 
 
 # Create vagrant pgsql superuser
