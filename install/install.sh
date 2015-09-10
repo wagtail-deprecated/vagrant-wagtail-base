@@ -31,11 +31,11 @@ su - postgres -c "createuser -s vagrant"
 
 # Elasticsearch
 echo "Downloading ElasticSearch..."
-wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.4.deb
-dpkg -i elasticsearch-1.4.4.deb
-update-rc.d elasticsearch defaults 95 10
-service elasticsearch start
-rm elasticsearch-1.4.4.deb
+wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.7.1.deb
+dpkg -i elasticsearch-1.7.1.deb
+systemctl enable elasticsearch
+systemctl start elasticsearch
+rm elasticsearch-1.7.1.deb
 
 
 # Remove some large packages that we don't need
