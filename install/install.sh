@@ -25,11 +25,23 @@ apt-get install -y python python-dev
 apt-get install -y python3 python3-dev
 
 # Python tools
-apt-get install -y virtualenv fabric python-sphinx
+# We need virtualenv >13.0.0 in order to get pip 7 to automatically install
+apt-get install -y python3-pip fabric python-sphinx
+pip3 install virtualenv
 
 
 # Create vagrant pgsql superuser
 su - postgres -c "createuser -s vagrant"
+
+
+# Prebuild wheelfiles for Pillow, psycopg2 and libsass
+# pip 7 automatically builds wheelfiles and caches them in ~/.cache/pip allowing faster initial provisions for projects
+su - vagrant -c "virtualenv --python=python2 /home/vagrant/venv2"
+su - vagrant -c "virtualenv --python=python3 /home/vagrant/venv3"
+su - vagrant -c "/home/vagrant/venv2/bin/pip install psycopg2==2.6.1 libsass==0.8.3 pillow==2.9.0"
+su - vagrant -c "/home/vagrant/venv3/bin/pip install psycopg2==2.6.1 libsass==0.8.3 pillow==2.9.0"
+su - vagrant -c "rm -rf /home/vagrant/venv2"
+su - vagrant -c "rm -rf /home/vagrant/venv3"
 
 
 # Elasticsearch

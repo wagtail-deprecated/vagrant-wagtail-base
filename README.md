@@ -24,6 +24,7 @@ What's inside
  - Elasticsearch 1.7.1
  - Vim, Git, GCC (with C++ support)
  - Development headers for Python (2 and 3), PostgreSQL and some image libraries (libjpeg, zlib, etc)
+ - Prebuilt wheel files for libsass (0.8.2), pillow (2.9.0) and psycopg2 (2.6.1). To use them, just pip install
 
 
 Build instructions
