@@ -69,7 +69,7 @@ pip2.7 install Fabric==1.10.1 Sphinx==1.2.3
 
 
 # Elasticsearch
-echo "Downloading ElasticSearch..."
+echo "Downloading Elasticsearch..."
 wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.4.deb
 dpkg -i elasticsearch-1.4.4.deb
 update-rc.d elasticsearch defaults 95 10
