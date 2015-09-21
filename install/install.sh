@@ -86,5 +86,5 @@ apt-get autoremove -y
 apt-get clean
 
 echo "Zeroing free space to improve compression..."
-dd if=/dev/zero of=/EMPTY bs=1M
+dd if=/dev/zero of=/EMPTY bs=1M 2>/dev/null
 rm -f /EMPTY
