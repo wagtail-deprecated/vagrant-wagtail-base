@@ -77,6 +77,13 @@ service elasticsearch start
 rm elasticsearch-1.4.4.deb
 
 
+# Node.js
+echo "Installing Node.js..."
+wget -q https://nodejs.org/dist/v4.2.2/node-v4.2.2-linux-x86.tar.xz
+cd /usr/local && tar --strip-components 1 -xJf /home/vagrant/node-v4.2.2-linux-x86.tar.xz
+rm node-v4.2.2-linux-x86.tar.xz
+
+
 # Remove some large packages that we don't need
 apt-get remove -y juju juju-core
 apt-get remove -y libllvm3.4

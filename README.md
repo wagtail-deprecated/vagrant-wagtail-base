@@ -19,6 +19,7 @@ What's inside
 
  - Python 2.7.9 with virtualenv and pip
  - Python 3.4.3 with pip (use bundled pyvenv for virtual environments)
+ - Node.js 4.2.2 with npm
  - PostgreSQL 9.3.6
  - Redis 2.8.4
  - Elasticsearch 1.4.4
