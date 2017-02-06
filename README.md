@@ -17,7 +17,7 @@ vagrant init torchbox/wagtail
 What's inside
 -------------
 
- - Python 3.4.2 with virtualenv and pip
+ - Python 3.6.0 with virtualenv and pip
  - PostgreSQL 9.6.1
  - Redis 2.8.17
  - Elasticsearch 1.7.1
@@ -29,6 +29,7 @@ Changes from v1
 ---------------
 
  - Debian updated to 8.7.0 (previously 8.2.0)
+ - Python 3 updated to 3.6.0 (previously 3.4.2)
  - Removed Python 2 support
  - Updated PostgreSQL to 9.6.1 (previously 9.4.4)
  - Updated bundled psycopg2 to 2.6.2 (previously 2.6.1)

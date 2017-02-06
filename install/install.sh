@@ -23,8 +23,15 @@ apt-get install -y postgresql-9.6 libpq-dev
 # Java for Elasticsearch
 apt-get install -y openjdk-7-jre-headless
 
-# Python 3.4
-apt-get install -y python3 python3-dev
+# Python 3.6
+apt-get install -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
+curl https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tgz | tar xvz
+cd Python-3.6.0
+./configure --enable-optimizations
+make
+make install
+cd ..
+rm -rf Python-3.6.0
 
 # Python tools
 # We need virtualenv >13.0.0 in order to get pip 7 to automatically install
