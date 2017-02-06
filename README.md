@@ -17,19 +17,19 @@ vagrant init torchbox/wagtail
 What's inside
 -------------
 
- - Python 2.7.9 with virtualenv and pip
  - Python 3.4.2 with virtualenv and pip
  - PostgreSQL 9.4.4
  - Redis 2.8.17
  - Elasticsearch 1.7.1
  - Vim, Git, GCC (with C++ support)
- - Development headers for Python (2 and 3), PostgreSQL and some image libraries (libjpeg, zlib, etc)
+ - Development headers for Python 3, PostgreSQL and some image libraries (libjpeg, zlib, etc)
  - Prebuilt wheel files for libsass (0.8.3), pillow (2.9.0) and psycopg2 (2.6.1). To use them, just pip install
 
 Changes from v1
 ---------------
 
  - Debian updated to 8.7.0 (previously 8.2.0)
+ - Removed Python 2 support
 
 
 Build instructions
