@@ -18,7 +18,7 @@ What's inside
 -------------
 
  - Python 3.4.2 with virtualenv and pip
- - PostgreSQL 9.4.4
+ - PostgreSQL 9.6.1
  - Redis 2.8.17
  - Elasticsearch 1.7.1
  - Vim, Git, GCC (with C++ support)
@@ -30,7 +30,7 @@ Changes from v1
 
  - Debian updated to 8.7.0 (previously 8.2.0)
  - Removed Python 2 support
-
+ - Updated PostgreSQL to 9.6.1 (previously 9.4.4)
 
 Build instructions
 ------------------

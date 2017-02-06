@@ -12,8 +12,13 @@ apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-
 # Redis
 apt-get install -y redis-server
 
-# PostgreSQL
-apt-get install -y postgresql libpq-dev
+# PostgreSQL 9.6
+cat << EOF > /etc/apt/sources.list.d/pgdg.list
+deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main
+EOF
+cat /vagrant/install/apt-key-postgresql.asc | sudo apt-key add -
+apt-get update -y
+apt-get install -y postgresql-9.6 libpq-dev
 
 # Java for Elasticsearch
 apt-get install -y openjdk-7-jre-headless
