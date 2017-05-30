@@ -28,13 +28,13 @@ apt install -y -t jessie-backports openjdk-8-jre-headless ca-certificates-java
 
 # Python 3.6
 apt-get install -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
-curl https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tgz | tar xvz
-cd Python-3.6.0
+curl https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz | tar xvz
+cd Python-3.6.1
 ./configure --enable-optimizations
 make
 make install
 cd ..
-rm -rf Python-3.6.0
+rm -rf Python-3.6.1
 
 # Python tools
 # We need virtualenv >13.0.0 in order to get pip 7 to automatically install
