@@ -1,7 +1,7 @@
 Vagrant box for Wagtail site development
 ========================================
 
-A Vagrant box based on Debian Jessie 8.8.0 64 bit, with the dependencies for developing Wagtail sites preinstalled.
+A Vagrant box based on Debian Jessie 8.7.0 64 bit, with the dependencies for developing Wagtail sites preinstalled.
 
 Usage
 -----
@@ -28,7 +28,7 @@ What's inside
 Changes from v1
 ---------------
 
- - Debian updated to 8.8.0 (previously 8.2.0)
+ - Debian updated to 8.7.0 (previously 8.2.0)
  - Python 3 updated to 3.6.0 (previously 3.4.2)
  - Removed Python 2 support
  - Updated PostgreSQL to 9.6.1 (previously 9.4.4)
@@ -39,8 +39,6 @@ Changes from v1
 
 Build instructions
 ------------------
-
-Ensure that you don't have any .box files from previous builds sitting in the repo root, as these end up embedded in the generated disk image.
 
 To generate the .box file:
 
