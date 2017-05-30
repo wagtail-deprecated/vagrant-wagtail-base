@@ -1,7 +1,7 @@
 Vagrant box for Wagtail site development
 ========================================
 
-A Vagrant box based on Debian Jessie 8.7.0 64 bit, with the dependencies for developing Wagtail sites preinstalled.
+A Vagrant box based on Debian Jessie 8.8.0 64 bit, with the dependencies for developing Wagtail sites preinstalled.
 
 Usage
 -----
@@ -20,7 +20,7 @@ What's inside
  - Python 3.6.0 with virtualenv and pip
  - PostgreSQL 9.6.1
  - Redis 2.8.17
- - Elasticsearch 1.7.1
+ - Elasticsearch 5.4.0
  - Vim, Git, GCC (with C++ support)
  - Development headers for Python 3, PostgreSQL and some image libraries (libjpeg, zlib, etc)
  - Prebuilt wheel files for libsass (0.12.3), pillow (4.0.0) and psycopg2 (2.6.2). To use them, just pip install
@@ -28,10 +28,11 @@ What's inside
 Changes from v1
 ---------------
 
- - Debian updated to 8.7.0 (previously 8.2.0)
+ - Debian updated to 8.8.0 (previously 8.2.0)
  - Python 3 updated to 3.6.0 (previously 3.4.2)
  - Removed Python 2 support
  - Updated PostgreSQL to 9.6.1 (previously 9.4.4)
+ - Updated Elasticsearch to 5.4.0 (previously 1.7.1)
  - Updated bundled psycopg2 to 2.6.2 (previously 2.6.1)
  - Updated bundled libsass to 0.12.3 (previously 0.8.3)
  - Updated bundled pillow to 4.0.0 (previously 2.9.0)
@@ -39,10 +40,12 @@ Changes from v1
 Build instructions
 ------------------
 
+Ensure that you don't have any .box files from previous builds sitting in the repo root, as these end up embedded in the generated disk image.
+
 To generate the .box file:
 
     ./build.sh
 
 To install locally:
 
-    vagrant box add wagtail-jessie64-v1.0.0 wagtail-jessie64-v1.0.0.box
+    vagrant box add wagtail-jessie64-v2.0.0 wagtail-jessie64-v2.0.0.box

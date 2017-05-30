@@ -6,5 +6,6 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "debian/jessie64"
+  config.vm.box_version = "~> 8.8.0"
   config.vm.provision :shell, :path => "install/install.sh"
 end

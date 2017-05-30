@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# we need jesse-backports for Java 8, required for Elasticsearch 5
+echo "deb http://ftp.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
+
 # Update APT database
 apt-get update -y
 
@@ -21,7 +24,7 @@ apt-get update -y
 apt-get install -y postgresql-9.6 libpq-dev
 
 # Java for Elasticsearch
-apt-get install -y openjdk-7-jre-headless
+apt install -y -t jessie-backports openjdk-8-jre-headless ca-certificates-java
 
 # Python 3.6
 apt-get install -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
@@ -52,15 +55,18 @@ su - vagrant -c "rm -rf /home/vagrant/venv"
 
 # Elasticsearch
 echo "Downloading ElasticSearch..."
-wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.7.1.deb
-dpkg -i elasticsearch-1.7.1.deb
+wget -q https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.4.0.deb
+dpkg -i elasticsearch-5.4.0.deb
+# reduce JVM heap size from 2g to 512m
+sed -i 's/^\(-Xm[sx]\)2g$/\1512m/g' /etc/elasticsearch/jvm.options
+
 systemctl enable elasticsearch
 systemctl start elasticsearch
-rm elasticsearch-1.7.1.deb
+rm elasticsearch-5.4.0.deb
 
 
 # Remove some large packages that we don't need
-apt-get remove -y libllvm3.4
+apt-get remove -y libllvm3.5
 apt-get autoremove -y
 
 # Cleanup
