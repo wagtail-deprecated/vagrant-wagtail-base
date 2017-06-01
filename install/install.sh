@@ -36,9 +36,12 @@ make install
 cd ..
 rm -rf Python-3.6.1
 
-# Python tools
+
+# Fabric (doesn't support Python 3 so installing into system's Python 2)
+apt-get install -y fabric
+
+
 # We need virtualenv >13.0.0 in order to get pip 7 to automatically install
-apt-get install -y python3-pip fabric python3-sphinx python3-six
 pip3 install virtualenv
 
 
