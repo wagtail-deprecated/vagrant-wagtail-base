@@ -47,7 +47,7 @@ su - postgres -c "createuser -s vagrant"
 
 
 # Elasticsearch
-echo "Downloading ElasticSearch..."
+echo "Downloading Elasticsearch..."
 wget -q https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.4.0.deb
 dpkg -i elasticsearch-5.4.0.deb
 # reduce JVM heap size from 2g to 512m
