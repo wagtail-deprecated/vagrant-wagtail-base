@@ -65,6 +65,9 @@ rm elasticsearch-5.4.0.deb
 apt-get remove -y libllvm3.5
 apt-get autoremove -y
 
+# Remove Python tests pycache (only used for testing Python itself. Saves 29.5MB)
+rm -rf /usr/local/lib/python3.6/test/__pycache__
+
 # Cleanup
 apt-get clean
 
