@@ -46,13 +46,6 @@ pip3 install virtualenv
 su - postgres -c "createuser -s vagrant"
 
 
-# Prebuild wheelfiles for Pillow, psycopg2 and libsass
-# pip 7 automatically builds wheelfiles and caches them in ~/.cache/pip allowing faster initial provisions for projects
-su - vagrant -c "virtualenv --python=python3 /home/vagrant/venv"
-su - vagrant -c "/home/vagrant/venv/bin/pip install psycopg2==2.6.2 libsass==0.12.3 pillow==4.0.0"
-su - vagrant -c "rm -rf /home/vagrant/venv"
-
-
 # Elasticsearch
 echo "Downloading ElasticSearch..."
 wget -q https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.4.0.deb
