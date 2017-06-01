@@ -11,7 +11,7 @@ This box is available on Vagrant cloud (aka Atlas) so can be used by just settin
 To create a new Vagrantfile that uses this box, run the following:
 
 ```
-vagrant init torchbox/wagtail
+vagrant init torchbox/wagtail-jessie64
 ```
 
 What's inside
