@@ -23,7 +23,6 @@ What's inside
  - Elasticsearch 5.4.0
  - Vim, Git, GCC (with C++ support)
  - Development headers for Python 3, PostgreSQL and some image libraries (libjpeg, zlib, etc)
- - Prebuilt wheel files for libsass (0.12.3), pillow (4.0.0) and psycopg2 (2.6.2). To use them, just pip install
 
 Changes from v1
 ---------------
@@ -34,9 +33,6 @@ Changes from v1
  - Removed prebuilt wheel files (they get outdated quickly and weren't saving much time)
  - Updated PostgreSQL to 9.6.3 (previously 9.4.4)
  - Updated Elasticsearch to 5.4.0 (previously 1.7.1)
- - Updated bundled psycopg2 to 2.6.2 (previously 2.6.1)
- - Updated bundled libsass to 0.12.3 (previously 0.8.3)
- - Updated bundled pillow to 4.0.0 (previously 2.9.0)
 
 Build instructions
 ------------------
