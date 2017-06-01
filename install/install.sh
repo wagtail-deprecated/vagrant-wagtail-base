@@ -38,7 +38,7 @@ rm -rf Python-3.6.1
 
 # Python tools
 # We need virtualenv >13.0.0 in order to get pip 7 to automatically install
-apt-get install -y python3-pip fabric python3-sphinx
+apt-get install -y python3-pip fabric python3-sphinx python3-six
 pip3 install virtualenv
 
 
