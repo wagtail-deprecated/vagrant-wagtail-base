@@ -20,7 +20,7 @@ What's inside
  - Python 3.6.1 with virtualenv and pip
  - PostgreSQL 9.6.3
  - Redis 2.8.17
- - Elasticsearch 5.4.0
+ - Elasticsearch 5.3.3
  - Vim, Git, GCC (with C++ support)
  - Development headers for Python 3, PostgreSQL and some image libraries (libjpeg, zlib, etc)
 
@@ -32,7 +32,7 @@ Changes from v1
  - Removed Python 2 support
  - Removed prebuilt wheel files (they get outdated quickly and weren't saving much time)
  - Updated PostgreSQL to 9.6.3 (previously 9.4.4)
- - Updated Elasticsearch to 5.4.0 (previously 1.7.1)
+ - Updated Elasticsearch to 5.3.3 (previously 1.7.1)
 
 Build instructions
 ------------------
