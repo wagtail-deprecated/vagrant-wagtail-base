@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# we need jesse-backports for Java 8, required for Elasticsearch 5
-echo "deb http://ftp.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
-
 # Update APT database
 apt-get update -y
 
@@ -15,16 +12,11 @@ apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-
 # Redis
 apt-get install -y redis-server
 
-# PostgreSQL 9.6
-cat << EOF > /etc/apt/sources.list.d/pgdg.list
-deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main
-EOF
-cat /vagrant/install/apt-key-postgresql.asc | sudo apt-key add -
-apt-get update -y
-apt-get install -y postgresql-9.6 libpq-dev
+# PostgreSQL
+apt-get install -y postgresql libpq-dev
 
 # Java for Elasticsearch
-apt install -y -t jessie-backports openjdk-8-jre-headless ca-certificates-java
+apt install -y openjdk-8-jre-headless ca-certificates-java
 
 # Python 3.6
 apt-get install -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
@@ -61,8 +53,7 @@ systemctl start elasticsearch
 rm elasticsearch-5.3.3.deb
 
 
-# Remove some large packages that we don't need
-apt-get remove -y libllvm3.5
+# Remove packages that we don't need
 apt-get autoremove -y
 
 # Remove Python tests pycache (only used for testing Python itself. Saves 29.5MB)
