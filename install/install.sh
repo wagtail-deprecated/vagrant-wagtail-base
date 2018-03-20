@@ -18,16 +18,8 @@ apt-get install -y postgresql libpq-dev
 # Java for Elasticsearch
 apt install -y openjdk-8-jre-headless ca-certificates-java
 
-# Python 3.6
-apt-get install -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
-curl https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz | tar xvz
-cd Python-3.6.1
-./configure --enable-optimizations
-make
-make install
-cd ..
-rm -rf Python-3.6.1
-
+# Python tools
+apt-get install -y python3-dev python3-pip python3-setuptools
 
 # Fabric (doesn't support Python 3 so installing into system's Python 2)
 apt-get install -y fabric
@@ -55,9 +47,6 @@ rm elasticsearch-5.3.3.deb
 
 # Remove packages that we don't need
 apt-get autoremove -y
-
-# Remove Python tests pycache (only used for testing Python itself. Saves 29.5MB)
-rm -rf /usr/local/lib/python3.6/test/__pycache__
 
 # Cleanup
 apt-get clean
