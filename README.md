@@ -17,10 +17,10 @@ vagrant init torchbox/wagtail-stretch64
 What's inside
 -------------
 
- - Python 3.6.1 with virtualenv and pip
- - PostgreSQL 9.6.3
- - Redis 2.8.17
- - Elasticsearch 5.3.3
+ - Python 3.5.3 with virtualenv and pip
+ - PostgreSQL 9.6.7
+ - Redis 3.2.6
+ - Elasticsearch 5.6.8
  - Vim, Git, GCC (with C++ support)
  - Development headers for Python 3, PostgreSQL and some image libraries (libjpeg, zlib, etc)
 
