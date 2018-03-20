@@ -35,14 +35,14 @@ su - postgres -c "createuser -s vagrant"
 
 # Elasticsearch
 echo "Downloading Elasticsearch..."
-wget -q https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.3.3.deb
-dpkg -i elasticsearch-5.3.3.deb
+wget -q https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.8.deb
+dpkg -i elasticsearch-5.6.8.deb
 # reduce JVM heap size from 2g to 512m
 sed -i 's/^\(-Xm[sx]\)2g$/\1512m/g' /etc/elasticsearch/jvm.options
 
 systemctl enable elasticsearch
 systemctl start elasticsearch
-rm elasticsearch-5.3.3.deb
+rm elasticsearch-5.6.8.deb
 
 
 # Remove packages that we don't need
