@@ -33,4 +33,4 @@ To generate the .box file:
 
 To install locally:
 
-    vagrant box add wagtail-stretch64-v1.0.0 wagtail-stretch64-v1.0.0.box
+    vagrant box add wagtail-stretch64-v2.0.0 wagtail-stretch64-v2.0.0.box
