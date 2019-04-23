@@ -26,13 +26,13 @@ apt-get remove -y python3
 
 # Python 3.6
 apt-get install -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
-curl https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz | tar xvz
-cd Python-3.6.4
+curl https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz | tar xvz
+cd Python-3.7.3
 ./configure --enable-optimizations
 make
 make install
 cd ..
-rm -rf Python-3.6.4
+rm -rf Python-3.7.3
 apt-get remove -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
 
 
