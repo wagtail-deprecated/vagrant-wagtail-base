@@ -2,7 +2,7 @@
 
 # to build wagtail-stretch64-v2.0.0.box:
 vagrant destroy
-vagrant up
+vagrant up --provider $1
 vagrant halt
 rm -f wagtail-stretch64-v2.0.0.box
 vagrant package --output wagtail-stretch64-v2.0.0.box

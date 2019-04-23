@@ -27,10 +27,16 @@ What's inside
 Build instructions
 ------------------
 
-To generate the .box file:
+To generate the .box file, run either:
 
-    ./build.sh
+    ./build.sh virtualbox
 
-To install locally:
+or 
+
+    ./build.sh libvirt
+
+Based on which provider you are using.
+
+Then, to install locally:
 
     vagrant box add wagtail-stretch64-v2.0.0 wagtail-stretch64-v2.0.0.box
