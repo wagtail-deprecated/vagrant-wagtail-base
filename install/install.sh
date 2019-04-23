@@ -36,10 +36,6 @@ rm -rf Python-3.6.4
 apt-get remove -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
 
 
-# Fabric (doesn't support Python 3 so installing into system's Python 2)
-apt-get install -y fabric
-
-
 # We need virtualenv >13.0.0 in order to get pip 7 to automatically install
 pip3 install virtualenv
 
