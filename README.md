@@ -1,7 +1,7 @@
 Vagrant box for Wagtail site development
 ========================================
 
-A Vagrant box based on Debian Stretch 9.4.0 64 bit, with the dependencies for developing Wagtail sites preinstalled.
+A Vagrant box based on Debian Stretch 9.8.0 64 bit, with the dependencies for developing Wagtail sites preinstalled.
 
 Usage
 -----

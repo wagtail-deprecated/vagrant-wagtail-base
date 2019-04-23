@@ -5,7 +5,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "debian/contrib-stretch64"
-  config.vm.box_version = "9.4.0"
+  config.vm.box = "debian/stretch64"
+  config.vm.box_version = "9.8.0"
   config.vm.provision :shell, :path => "install/install.sh"
 end
