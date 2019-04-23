@@ -21,6 +21,15 @@ vagrant init torchbox/wagtail-stretch64
  - Vim, Git, GCC (with C++ support)
  - Development headers for Python 3, PostgreSQL and some image libraries (libjpeg, zlib, etc)
 
+### Elasticsearch
+
+While Elasticsearch is installed, it is not enabled by default. To enable it, add the following into the Vagrant provision script of your project:
+
+```
+systemctl enable elasticsearch
+systemctl start elasticsearch
+```
+
 ## Build instructions
 
 To generate the .box file, run either:
