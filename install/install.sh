@@ -62,6 +62,7 @@ rm -rf /usr/local/lib/python3.6/test/__pycache__
 
 # Cleanup
 apt-get clean
+rm /var/lib/apt/lists/*
 
 echo "Zeroing free space to improve compression..."
 dd if=/dev/zero of=/EMPTY bs=1M
