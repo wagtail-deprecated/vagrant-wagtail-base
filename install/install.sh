@@ -24,16 +24,17 @@ apt install -y openjdk-8-jre-headless ca-certificates-java
 # Remove Python 3.5 (shipped with debian)
 apt-get remove -y python3
 
-# Python 3.6
-apt-get install -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
-curl https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz | tar xvz
-cd Python-3.7.3
+# Python
+export PYTHON_VERSION=3.7.4
+apt-get install -y libffi-dev libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
+curl https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz | tar xvz
+cd Python-$PYTHON_VERSION
 ./configure --enable-optimizations
 make
 make install
 cd ..
-rm -rf Python-3.7.3
-apt-get remove -y libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
+rm -rf Python-$PYTHON_VERSION
+apt-get remove -y libffi-dev libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
 
 
 # We need virtualenv >13.0.0 in order to get pip 7 to automatically install
@@ -58,7 +59,7 @@ rm elasticsearch-5.6.8.deb
 apt-get autoremove -y
 
 # Remove Python tests pycache (only used for testing Python itself. Saves 29.5MB)
-rm -rf /usr/local/lib/python3.6/test/__pycache__
+rm -rf /usr/local/lib/python3.7/test/__pycache__
 
 # Cleanup
 apt-get clean
