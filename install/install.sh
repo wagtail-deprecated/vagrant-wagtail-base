@@ -37,8 +37,8 @@ rm -rf Python-$PYTHON_VERSION
 apt-get remove -y libffi-dev libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
 
 
-# Install poetry
-pip3 install poetry
+# Install poetry and Fabric
+pip3 install poetry Fabric
 
 
 # We need virtualenv >13.0.0 in order to get pip 7 to automatically install

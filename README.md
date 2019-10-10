@@ -16,7 +16,7 @@ vagrant init wagtail/buster64
 
 ## What's inside
 
- - Python 3.7.4 with virtualenv, pip, and poetry
+ - Python 3.7.4 with virtualenv, pip, poetry, and Fabric 2
  - PostgreSQL 11.5 with libpq-dev and contrib
  - Redis 5.0.3
  - Elasticsearch 5.6.8
