@@ -45,6 +45,11 @@ pip3 install poetry Fabric
 pip3 install virtualenv
 
 
+# Node JS
+curl -sSL https://deb.nodesource.com/setup_12.x | bash -
+apt-get install -y nodejs
+
+
 # Create vagrant pgsql superuser
 su - postgres -c "createuser -s vagrant"
 
