@@ -25,7 +25,7 @@ apt install -y openjdk-8-jre-headless ca-certificates-java
 apt-get remove -y python3
 
 # Python
-export PYTHON_VERSION=3.7.4
+export PYTHON_VERSION=3.8.0
 apt-get install -y libffi-dev libssl-dev libncurses-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev tk-dev libreadline6-dev
 curl https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz | tar xvz
 cd Python-$PYTHON_VERSION
