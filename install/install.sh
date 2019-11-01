@@ -45,9 +45,9 @@ pip3 install poetry Fabric
 pip3 install virtualenv
 
 
-# Node JS
-curl -sSL https://deb.nodesource.com/setup_12.x | bash -
-apt-get install -y nodejs
+# NVM and Node JS
+su - vagrant -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash"
+su - vagrant -c "export NVM_DIR=\$HOME/.nvm && \. \$NVM_DIR/nvm.sh && nvm install 12.13"
 
 
 # Create vagrant pgsql superuser
