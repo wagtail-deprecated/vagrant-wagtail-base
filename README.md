@@ -1,5 +1,3 @@
-**THIS VERSION IS CURRENTLY IN DEVELOPMENT**
-
 # Vagrant box for Wagtail site development
 
 A Vagrant box based on Debian Buster 10.0.0 64 bit, with the dependencies for developing Wagtail sites preinstalled.
