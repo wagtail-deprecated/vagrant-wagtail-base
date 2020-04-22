@@ -1,6 +1,6 @@
 # Vagrant box for Wagtail site development
 
-A Vagrant box based on Debian Buster 10.0.0 64 bit, with the dependencies for developing Wagtail sites preinstalled.
+A Vagrant box based on Debian Buster 10.3.0 64 bit, with the dependencies for developing Wagtail sites preinstalled.
 
 ## Usage
 
@@ -14,9 +14,9 @@ vagrant init wagtail/buster64
 
 ## What's inside
 
- - Python 3.8.0 with virtualenv, pip, poetry, and Fabric 2
- - NodeJS 12.13 with npm and nvm
- - PostgreSQL 11.5 with libpq-dev and contrib
+ - Python 3.8.2 with virtualenv, pip, poetry, and Fabric 2
+ - NodeJS 12.16 with npm and nvm
+ - PostgreSQL 11.7 with libpq-dev and contrib
  - Redis 5.0.3
  - Elasticsearch 5.6.8
  - Vim, Git, GCC (with C++ support)
