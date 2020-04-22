@@ -50,8 +50,8 @@ pip3 install virtualenv
 
 
 # NVM and Node JS
-su - vagrant -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash"
-su - vagrant -c "export NVM_DIR=\$HOME/.nvm && \. \$NVM_DIR/nvm.sh && nvm install 12.13"
+su - vagrant -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash"
+su - vagrant -c "export NVM_DIR=\$HOME/.nvm && \. \$NVM_DIR/nvm.sh && nvm install 12.16"
 
 
 # Create vagrant pgsql superuser
