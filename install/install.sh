@@ -19,7 +19,7 @@ apt-get update -y
 apt-get install -y postgresql-11 postgresql-client-11 postgresql-contrib-11 libpq-dev
 
 # Java for Elasticsearch
-apt install -y openjdk-8-jre-headless ca-certificates-java
+apt install -y openjdk-11-jre-headless ca-certificates-java
 
 # Remove Python 3.5 (shipped with debian)
 apt-get remove -y python3
