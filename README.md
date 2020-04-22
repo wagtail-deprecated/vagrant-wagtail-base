@@ -50,5 +50,5 @@ Based on which provider you are using.
 Then, to install locally:
 
 ```
-vagrant box add wagtail-buster64-v1.0.0 wagtail-buster64-v1.0.0.box
+vagrant box add wagtail/buster64 wagtail-buster64-v1.1.0.box
 ```
