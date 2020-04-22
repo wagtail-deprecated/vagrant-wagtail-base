@@ -3,6 +3,10 @@
 # Update APT database
 apt-get update -y
 
+# Enable English locale
+echo "en_GB.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
+
 # Useful tools
 apt-get install -y vim git curl gettext build-essential
 
